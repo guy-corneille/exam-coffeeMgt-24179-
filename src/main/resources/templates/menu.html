@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>The Coffee Zone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('static/images/background3.png') center center fixed;
+            background-size: cover;
+            filter: blur(10px); /* Adjust the blur level as needed */
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+
+        nav {
+            background-color: #8B4513;
+        }
+
+        nav a {
+            color: white;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .list-group-item {
+            cursor: pointer;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .card-text {
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: #8B4513;
+            border-color: #8B4513;
+        }
+
+        .btn-primary:hover {
+            background-color: #654321;
+            border-color: #654321;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{index}">The Coffee Zone</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{index}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/menu}">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/clients}">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h4>Categories</h4>
+            <ul class="list-group">
+                <a th:href="@{/menu}"><li class="list-group-item">All Products</li></a>
+                <a href="" th:each="category, iStat : ${categories}" th:href="@{/menu/category/{id}(id=${category.id})}">
+                    <li class="list-group-item" th:text="${category.name}"></li>
+                </a>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div th:each="product : ${products}">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-5 d-flex justify-content-center">
+                            <img class="card-img" th:src="@{'/productImages/' + ${product.imageName}}" alt="">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${product.name}"></h5>
+                                <h4 class="card-text">Francs<span th:text="${product.price}"></span></h4>
+                                <p class="card-text" th:text="${product.description}"></p>
+                                <a href="#" class="btn btn-primary" th:href="@{/menu/viewProduct/{id}(id=${product.id})}">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

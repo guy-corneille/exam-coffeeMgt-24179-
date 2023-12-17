@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>The Coffee Zone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{style.css}">
+    <style>
+        /* Add your custom styles here */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f8f9fa;
+            background-image: image('../static/images/background3.png');
+            background-size: cover;
+        }
+
+        nav {
+            background-color: #8B4513;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Apply ml-auto to the last item in the navigation list */
+        nav li:last-child {
+            margin-left: auto;
+        }
+
+        header {
+            text-align: center;
+            margin: 50px 0;
+            position: relative; /* Add relative positioning to the header */
+        }
+
+        header h1 {
+            color: #8B4513; /* Set a light chocolate color for the heading */
+        }
+
+        header p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Add the image container with a blurred background */
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Set a lower z-index to place it behind other content */
+            filter: blur(10px); /* Add blur effect to the background image */
+        }
+
+        /* Add styles to make the image container visible */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            background-color: #8B4513; /* Set a light chocolate color for the button */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #654321; /* Darken the color on hover */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" th:href="@{index}">Home</a></li>
+        <li class="nav-item"><a class="nav-link"  th:href="@{/about}">About</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/menu}">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/clients}">Book Here</a></li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+    </ul>
+</nav>
+
+<header>
+    <!-- Image container for the blurred background -->
+    <div class="image-container">
+        <img class="about-image" th:src="@{/images/background3.png}" alt="Coffee Beans">
+    </div>
+
+    <h1>The Coffee Zone</h1>
+    <p>consectetur adipiscing elit. Aliquam sed dapibus. Quisque ut risus nec lacus</p>
+    <button class="btn btn-dark" onclick="window.location.href='/menu'">View Menu</button>
+    <button class="btn btn-dark" onclick="window.location.href='/clients'">Book Table</button>
+</header>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

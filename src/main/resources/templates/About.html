@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Us - The Coffee Zone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{style.css}">
+    <style>
+        /* Add your custom styles here */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f8f9fa;
+            background-image: url('static/images/background2.png');
+            background-size: cover;
+        }
+
+        nav {
+            background-color: #8B4513;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Apply ml-auto to the last item in the navigation list */
+        nav li:last-child {
+            margin-left: auto;
+        }
+
+        header {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        header h1 {
+            color: #8B4513; /* Set a light chocolate color for the heading */
+        }
+
+        header p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #8B4513; /* Set a light chocolate color for the button */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #654321; /* Darken the color on hover */
+        }
+
+        footer {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Custom styles for the About Us page */
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #8B4513;">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" th:href="@{index}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/menu}">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/clients}">Book Here</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+    </ul>
+</nav>
+<div class="about-container">
+    <h2>About The Coffee Zone</h2>
+
+    <p>
+        Welcome to The Coffee Zone, where we strive to create a delightful coffee experience for our customers.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt justo nec quam vestibulum, sed congue mi tempus.
+    </p>
+    <img class="about-image" th:src="@{/images/background1.png}" alt="Coffee Beans">
+
+    <p>
+        Our journey began with a passion for quality coffee and a desire to provide a cozy and inviting space for our community.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt justo nec quam vestibulum, sed congue mi tempus.
+    </p>
+    <img class="about-image" th:src="@{/images/background2.png}" alt="Coffee Beans">
+    <p>
+        At The Coffee Zone, we source the finest coffee beans and craft each cup with care.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt justo nec quam vestibulum, sed congue mi tempus.
+    </p>
+</div>
+
+<footer>
+    <p>&copy; 2023 The Coffee Zone. All rights reserved.
+    Address: 123 Coffee Street, Cityville</p>
+    <p>Contact: info@thecoffeezone.com</p>
+    <!-- Place the Login link or any additional content here -->
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

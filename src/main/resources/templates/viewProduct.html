@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container mt-4">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" th:src="@{'/productImages/' + ${product.imageName}}" alt="Product Image">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${product.name}"></h5>
+            <p class="card-text" th:text="'Price: Francs ' + ${product.price}"></p>
+            <p class="card-text" th:text="${product.description}"></p>
+            <p class="card-text" th:text="'Category: ' + ${product.category.name}"></p>
+            <!-- Add more properties as needed -->
+            <form th:action="@{'/addToCart/' + ${product.id}}" method="get">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

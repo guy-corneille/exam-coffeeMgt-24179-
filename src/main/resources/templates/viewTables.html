@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Booked Tables</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../static/Css/styleClient.css}">
+    <style>
+        body {
+            background-color: #f4f0e7; /* light chocolate background color */
+            color: #efe8d1; /* cream text color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #8f6552; /* darker chocolate navigation bar color */
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: #8f6552; /* darker chocolate form background color */
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #efe8d1; /* cream border color */
+        }
+
+        th {
+            background-color: #efe8d1; /* cream button background color */
+            color: #8f6552; /* darker chocolate button text color */
+        }
+
+        tr:hover {
+            background-color: #d6b38d; /* light chocolate button background color on hover */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{index}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a th:href="@{/clients}">Services</a></li>
+        <li><a href="#">Contact us</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Booked Tables</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Full Names</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Number</th>
+            <th>Date</th>
+            <th>Suggestion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through the list of booked tables and display each row -->
+        <tr th:each="clientTable : ${clientTables}">
+                <td th:text="${clientTable.fullNames}"></td>
+            <td th:text="${clientTable.email}"></td>
+            <td th:text="${clientTable.phone}"></td>
+            <td th:text="${clientTable.nber}"></td>
+            <td th:text="${clientTable.theDate}"></td>
+            <td th:text="${clientTable.suggestion}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
